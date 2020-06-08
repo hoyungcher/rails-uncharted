@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_132702) do
+ActiveRecord::Schema.define(version: 2020_06_08_073347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_132702) do
     t.bigint "locality_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["locality_id"], name: "index_attractions_on_locality_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_132702) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_132702) do
     t.string "iso_3166_1_numeric"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "localities", force: :cascade do |t|
@@ -45,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_132702) do
     t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["country_id"], name: "index_localities_on_country_id"
   end
 
@@ -64,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_132702) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["category_id"], name: "index_themes_on_category_id"
   end
 
