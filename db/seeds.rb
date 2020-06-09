@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'json'
+puts "Deleting entries..."
+Country.destroy_all
+Category.destroy_all
+
+puts "Seeding countries..."
 filepath = "#{Rails.root}/countries.json"
 serialized_countries = File.read(filepath)
 countries = JSON.parse(serialized_countries)
@@ -18,3 +23,20 @@ countries.each do |country|
     iso_3166_1_numeric: country['id'].to_s
   )
 end
+
+puts "Seeding categories..."
+categories = Category.create([
+  {name: 'Art'},
+  {name: 'Architecture & Design'},
+  {name: 'Film & TV Shows'},
+  {name: 'Food & Drink'},
+  {name: 'History & Culture'},
+  {name: 'Literature'},
+  {name: 'Music & Performing Arts'},
+  {name: 'Nature & Landscapes'},
+  {name: 'Nightlife'},
+  {name: 'Religion'},
+  {name: 'Sports & Adventure'}
+])
+
+

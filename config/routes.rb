@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :api do
   #   namespace :v1 do
-  #     resources :countries, only: [:index, :show]
-  #     resources :localities, only: [:index, :show]
+  #     resources :countries, param: :slug
+  #     resources :localities, param: :slug
   #     resources :attractions, only: [:show]
   #     resources :themes
   #   end

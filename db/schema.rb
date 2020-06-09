@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_073347) do
+ActiveRecord::Schema.define(version: 2020_06_09_063028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_073347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["locality_id"], name: "index_attractions_on_locality_id"
   end
 
@@ -49,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_073347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["country_id"], name: "index_localities_on_country_id"
   end
 
