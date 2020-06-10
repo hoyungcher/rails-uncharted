@@ -1,5 +1,5 @@
 class Country < ApplicationRecord
-  has_many :localities
+  has_many :localities, dependent: :destroy
   has_many :attractions, through: :localities
   before_create :slugify
 

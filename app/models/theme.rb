@@ -1,6 +1,6 @@
 class Theme < ApplicationRecord
   belongs_to :category
-  has_many :theme_attractions
+  has_many :theme_attractions, dependent: :destroy
   has_many :attractions, through: :theme_attractions
   before_create :slugify
 

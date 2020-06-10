@@ -1,4 +1,5 @@
 class LocalitySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :latitude, :longitude, :slug, :country_id
+  attributes :name, :latitude, :longitude, :slug
+  belongs_to :country
 end

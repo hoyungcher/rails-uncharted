@@ -3,7 +3,7 @@ class Attraction < ApplicationRecord
   validates :name, uniqueness: true
 
   belongs_to :locality
-  has_many :theme_attractions
+  has_many :theme_attractions, dependent: :destroy
   has_many :themes, through: :theme_attractions
   before_create :slugify
   geocoded_by :name

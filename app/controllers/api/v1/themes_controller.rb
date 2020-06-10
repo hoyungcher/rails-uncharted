@@ -7,9 +7,7 @@ module Api
       end
       def show
         theme = Theme.find_by(slug: params[:slug])
-        options = {}
-        options[:include] = [:category, :'category.name']
-        render json: ThemeSerializer.new(theme, options).serialized_json
+        render json: ThemeSerializer.new(theme).serialized_json
       end
     end
   end

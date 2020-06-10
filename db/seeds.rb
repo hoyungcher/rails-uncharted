@@ -11,6 +11,9 @@ puts 'Deleting entries...'
 Country.destroy_all
 Category.destroy_all
 Theme.destroy_all
+Locality.destroy_all
+Attraction.destroy_all
+ThemeAttraction.destroy_all
 
 puts 'Seeding countries...'
 filepath = "#{Rails.root}/countries.json"
@@ -24,6 +27,16 @@ countries.each do |country|
     iso_3166_1_numeric: country['id'].to_s
   )
 end
+
+puts 'Seeding localities...'
+Locality.create([
+  { name: 'Seville', country: Country.find_by_name('Spain')},
+  { name: 'Barcelona', country: Country.find_by_name('Spain')},
+  { name: 'Madrid', country: Country.find_by_name('Spain')},
+  { name: 'Valencia', country: Country.find_by_name('Spain')},
+  { name: 'Granada', country: Country.find_by_name('Spain')},
+  { name: 'Malaga', country: Country.find_by_name('Spain')}
+])
 
 puts 'Seeding categories...'
 Category.create([
@@ -42,8 +55,13 @@ Category.create([
 ])
 
 puts 'Seeding themes...'
+Theme.create(name: 'Castles', description: 'Relive your fairytales in these castles', category: Category.find_by_name('Architecture & Design'))
+Theme.create(name: 'Bauhaus', description: 'Come discover the architecture and history of this groundbreaking movement originating from the 1920s', category: Category.find_by_name('Architecture and Design'))
+
 Theme.create(name: 'Downton Abbey', description: 'Come discover the incredible landscapes from this TV show', category: Category.find_by_name('Film and TV Shows'))
 Theme.create(name: 'Game of Thrones', description: 'Come discover the incredible real-life settings of this medieval drama.', category: Category.find_by_name('Film and TV Shows'))
 Theme.create(name: 'Lord of The Rings', description: 'Come discover the incredible landscapes from this movie series', category: Category.find_by_name('Film and TV Shows'))
 Theme.create(name: 'Outlander', description: 'Come discover the incredible landscapes from this TV show', category: Category.find_by_name('Film and TV Shows'))
 Theme.create(name: 'Star Wars', description: 'Come discover the incredible landscapes from this movie series', category: Category.find_by_name('Film and TV Shows'))
+
+Attraction.create(name: 'Plaza de España', description: 'Site of the World Exposition in 1929', locality: Locality.find_by_name('Seville'))
