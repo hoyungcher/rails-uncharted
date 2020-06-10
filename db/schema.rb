@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_063028) do
+ActiveRecord::Schema.define(version: 2020_06_10_042025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2020_06_09_063028) do
     t.index ["theme_id"], name: "index_theme_attractions_on_theme_id"
   end
 
+  create_table "theme_localities", force: :cascade do |t|
+    t.bigint "theme_id"
+    t.bigint "locality_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locality_id"], name: "index_theme_localities_on_locality_id"
+    t.index ["theme_id"], name: "index_theme_localities_on_theme_id"
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -89,5 +99,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_063028) do
   add_foreign_key "localities", "countries"
   add_foreign_key "theme_attractions", "attractions"
   add_foreign_key "theme_attractions", "themes"
+  add_foreign_key "theme_localities", "localities"
+  add_foreign_key "theme_localities", "themes"
   add_foreign_key "themes", "categories"
 end

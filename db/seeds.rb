@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'json'
-puts "Deleting entries..."
+puts 'Deleting entries...'
 Country.destroy_all
 Category.destroy_all
+Theme.destroy_all
 
-puts "Seeding countries..."
+puts 'Seeding countries...'
 filepath = "#{Rails.root}/countries.json"
 serialized_countries = File.read(filepath)
 countries = JSON.parse(serialized_countries)
@@ -24,19 +25,25 @@ countries.each do |country|
   )
 end
 
-puts "Seeding categories..."
-categories = Category.create([
-  {name: 'Art'},
-  {name: 'Architecture & Design'},
-  {name: 'Film & TV Shows'},
-  {name: 'Food & Drink'},
-  {name: 'History & Culture'},
-  {name: 'Literature'},
-  {name: 'Music & Performing Arts'},
-  {name: 'Nature & Landscapes'},
-  {name: 'Nightlife'},
-  {name: 'Religion'},
-  {name: 'Sports & Adventure'}
+puts 'Seeding categories...'
+Category.create([
+  { name: 'Art' },
+  { name: 'Architecture and Design' },
+  { name: 'Entertainment'},
+  { name: 'Film and TV Shows' },
+  { name: 'Food and Drink' },
+  { name: 'History and Culture' },
+  { name: 'Literature' },
+  { name: 'Music and Performing Arts' },
+  { name: 'Nature and Landscapes' },
+  { name: 'Nightlife' },
+  { name: 'Religion' },
+  { name: 'Sports and Adventure' }
 ])
 
-
+puts 'Seeding themes...'
+Theme.create(name: 'Downton Abbey', description: 'Come discover the incredible landscapes from this TV show', category: Category.find_by_name('Film and TV Shows'))
+Theme.create(name: 'Game of Thrones', description: 'Come discover the incredible real-life settings of this medieval drama.', category: Category.find_by_name('Film and TV Shows'))
+Theme.create(name: 'Lord of The Rings', description: 'Come discover the incredible landscapes from this movie series', category: Category.find_by_name('Film and TV Shows'))
+Theme.create(name: 'Outlander', description: 'Come discover the incredible landscapes from this TV show', category: Category.find_by_name('Film and TV Shows'))
+Theme.create(name: 'Star Wars', description: 'Come discover the incredible landscapes from this movie series', category: Category.find_by_name('Film and TV Shows'))
