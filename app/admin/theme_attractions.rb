@@ -5,7 +5,7 @@ ActiveAdmin.register ThemeAttraction do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :theme_id, :attraction_id, :description
+  permit_params :theme_id, :attraction_id, :description
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register ThemeAttraction do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

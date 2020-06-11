@@ -5,7 +5,7 @@ ActiveAdmin.register Locality do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :country_id, :slug, :latitude, :longitude
+  permit_params :name, :country_id, :slug, :latitude, :longitude
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Locality do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

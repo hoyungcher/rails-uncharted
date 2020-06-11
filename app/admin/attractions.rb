@@ -5,7 +5,7 @@ ActiveAdmin.register Attraction do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :description, :types, :locality_id, :slug, :latitude, :longitude
+  permit_params :name, :description, :types, :locality_id, :slug, :latitude, :longitude
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Attraction do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

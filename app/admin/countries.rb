@@ -5,7 +5,7 @@ ActiveAdmin.register Country do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :iso_3166_1_alpha2, :iso_3166_1_alpha3, :iso_3166_1_numeric, :slug
+  permit_params :name, :iso_3166_1_alpha2, :iso_3166_1_alpha3, :iso_3166_1_numeric, :slug
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Country do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
