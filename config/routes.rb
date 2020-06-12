@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :localities, param: :slug, only: [:show, :index]
       resources :attractions, param: :slug, only: [:show, :index]
       resources :themes, param: :slug, only: [:show, :index]
+      resources :categories, param: :slug, only: [:show, :index]
     end
   end
 
