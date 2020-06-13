@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :attractions, param: :slug, only: [:show, :index]
       resources :themes, param: :slug, only: [:show, :index]
       resources :categories, param: :slug, only: [:show, :index]
+      resources :theme_attractions, only: [:show, :index]
     end
   end
 
